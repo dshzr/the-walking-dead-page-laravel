@@ -1,0 +1,262 @@
+@font-face {
+    font-family: "Tugsten";
+    src: url("./woff2.woff2") format("woff2"), url("./woff.woff") format("woff"),
+        url("./eot.eot") format("eot"), url("./fonte.ttf") format("ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+body {
+    font-family: "Tugsten";
+    background: #333;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+video {
+    width: 100vw;
+    position: fixed;
+    z-index: 0;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.navbar {
+
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 15px;
+    position: fixed;
+    z-index: 1000;
+    background-image: linear-gradient(to bottom, #000 70%, transparent );
+}
+
+#logo {
+    color: #fff;
+    font-size: 2.5rem;
+}
+
+#logo::before {
+    content: "THE";
+    font-size: 0.8rem;
+    position: absolute;
+    left: 37px;
+    top: 10px;
+}
+
+.bottomdegrade {
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(to bottom, 50% #000, transparent);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px;
+    padding-bottom: 20px;
+    position: absolute;
+    z-index: 5;
+}
+
+.gridcontent {
+    width: 100%;
+    height: 80%;
+    margin: 0 100px;
+    background-color: rgba(14, 14, 14, 0.959);
+    border-radius: 5px;
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.2);
+    display: grid;
+    grid-template-columns: 400px 1fr;
+}
+.imagem {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    max-height: 100%;
+}
+.imagem img {
+    width: 100%;
+    max-width: 350px;
+    height: 85%;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.conteudo {
+    display: flex;
+    justify-content: center;
+    color: white;
+    flex-direction: column;
+    gap: 5px;
+    font-family: "Roboto";
+    max-width: 700px;
+}
+
+#classificacao {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#classificacao span {
+    padding: 2px 5px;
+    border: 1px solid white;
+    text-align: center;
+}
+
+.sinopse-desc {
+    padding: 30px 0;
+}
+
+.sinopse-desc h3 {
+    padding-bottom: 10px;
+}
+
+@media (max-width: 1024px) {
+    .gridcontent {
+        grid-template-columns: 1fr;
+        grid-template-rows: 200px 1fr;
+        height: 700px;
+        min-width: 100vw;
+    }
+    .imagem img {
+        max-height: 230px;
+        margin: 10px;
+    }
+    .conteudo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        flex-direction: column;
+        gap: 5px;
+        font-family: "Roboto";
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    .conteudo h1 {
+        font-size: 2rem;
+    }
+    #classificacao {
+        max-width: 400px;
+        flex-direction: row;
+    }
+    #categorias {
+        display: none;
+    }
+    .sinopse-desc {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        margin: 0 auto;
+        align-items: center;
+        padding: 20px 40;
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .gridcontent {
+        min-width: 100vw;
+    }
+    .conteudo h1 {
+        font-size: 15pt;
+    }
+}
+
+#assistir {
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    background-image: linear-gradient(-45deg, red 40%, #222 20%);
+    font-weight: bold;
+    font-size: 14pt;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 20px auto;
+    animation: abrir 0.5s ease forwards;
+    animation-delay: 1s;
+    opacity: 0;
+}
+
+#assistir:hover {
+    transform: translateY(-5px);
+    background-image: linear-gradient(-45deg, #28494d 40%, #222 20%);
+}
+
+/* animacao */
+
+nav.ativo {
+    animation: showtop 2s ease forwards;
+}
+
+.conteudo {
+    animation: showright 0.8s ease forwards;
+}
+
+.imagem img {
+    animation: pop 1s ease forwards;
+}
+
+@keyframes abrir {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes showtop {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+@keyframes showright {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+@keyframes pop {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    150% {
+        opacity: 0.5;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
